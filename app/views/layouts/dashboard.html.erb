@@ -32,6 +32,11 @@
         <div class="inner-page-hero bg-image" style="background:url(<%= asset_path 'images/profile-banner.jpg' %>)">
           <div class="container"> </div>
         </div>
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %> alert_mess">
+            <%= message %>
+          </div>
+        <% end %>
         <div class="result-show">
           <%= yield %>
           <%= render "shared/footer_dashboard" %>

@@ -122,10 +122,34 @@ vi:
     product:
       order_now: "Đặt hàng"
     show:
-      order_now: "Đặt hàng "
+      order_now: "Đặt hàng"
       in_stock: "trong kho hàng"
       not_found: "Không tìm thấ sản phẩm"
+      quantity: "Số lượng"
   submit: "Tạo mới"
   empty: "Trống!"
   btn_ok: "Đồng ý"
   btn_cancel: "Hủy bỏ"
+  carts:
+    index:
+      name: "Tên sản phẩm"
+      image: "Ảnh"
+      price: "Giá"
+      size: "Kích cỡ"
+      quantity: "Số lượng"
+      total_price: "Tổng giá"
+      back_to_shop: "Quay trở lại cửa hàng"
+      checkout: "Thanh toán"
+      summary: "Chi tiết thanh toán"
+  line_items:
+    create:
+      success_create : "Thêm vào giỏ hàng thành công"
+      err_create: "Thêm giỏ hàng không thành công"
+    change_quantity:
+      success_qty: "Cập nhật số lượng sản phẩm thành công"
+      err_qty: "Cập nhật số lượng sản phẩm không thành công"
+    destroy:
+      success_delete_line: "Sản phẩm được xóa khỏi giỏ hàng thành công"
+      err_delete_line: "Xóa sản phẩm khỏi giỏ hàng không thành công"
+    find_line_item:
+      not_found: "Sản phẩm không có"

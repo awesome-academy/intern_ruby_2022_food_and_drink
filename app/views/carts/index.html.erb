@@ -1,0 +1,56 @@
+<section class="restaurants-page cart_show">
+  <div class=" mr-2">
+    <div class="row ">
+      <div class="col-md-9 cart">
+        <div class="table table-borderless">
+          <table class="table table-bordered">
+            <tr>
+              <th><%= t ".name" %> </th>
+              <th><%= t ".image" %>  </th>
+              <th><%= t ".price" %>  </th>
+              <th><%= t ".size" %>  </th>
+              <th><%= t ".quantity" %>  </th>
+              <th><%= t ".total_price" %> </th>
+              <th></th>
+              <th></th>
+            </tr>
+            <% @cart.line_items.each do |line_item| %>
+              <tr>
+                <td><%= line_item.product_attribute.product.name %></td>
+                <td><img src = "<%= line_item.product_attribute.product.product_images.first.image %>"></td>
+                <td><%= line_item.product_attribute.price %></td>
+                <td><%= line_item.product_attribute.size.name %></td>
+                <td><%= line_item.quantity %></td>
+                <td><%= line_item.total_price %></td>
+                <td class="buton_list">
+                  <%= button_to "+", line_item_change_quantity_path(:id => line_item, operator: "+"), method: :post %>
+                </td>
+                <td class="buton_list">
+                  <%= button_to "-", line_item_change_quantity_path(:id => line_item, operator: "-"), method: :post %>
+                </td>
+                <td class="buton_list">
+                  <%= button_to "x", line_item_path(line_item), method: :delete %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        <div class="back-to-shop">
+          <a href="#">&leftarrow;</a>
+          <span class="text-muted"><%= t ".back_to_shop" %> </span>
+        </div>
+      </div>
+      <div class="col-md-3 summary">
+        <div>
+          <h5><b><%= t ".summary" %> </b></h5>
+        </div>
+        <hr>
+        <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+          <div class="col text-uppercase"><%= t ".total_price" %> </div>
+          <div class="col text-right"><%= @cart.sub_total %></div>
+        </div>
+        <button class="btn text-uppercase"><%= t ".checkout" %></button>
+      </div>
+    </div>
+  </div>
+</section>

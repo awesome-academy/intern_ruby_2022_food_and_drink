@@ -60,6 +60,7 @@ en:
       create:
         success: "Create successfully"
         fail: "Create fail"
+        create: "Create"
   shared:
     nav:
       category: "Category"
@@ -118,3 +119,27 @@ en:
       not_found: "Product not found"
   submit: "Submit"
   empty: "Empty!"
+  carts:
+    index:
+      name: "Product name"
+      image: "Image"
+      price: "Price"
+      size: "Size"
+      quantity: "Quantity"
+      total_price: "Total price"
+      back_to_shop: "Back to shop"
+      checkout: "Checkout"
+      summary: "Summary"
+  orders:
+    create:
+      order_success: "Order successfully!"
+      order_fail: "Order fail"
+    new:
+      cart_sum: "Cart Summary"
+      order_now: "Order Now"
+      total: "Total Price"
+      checkout: "Checkout"
+      phone: "Phone"
+      address: "Address"
+      note: "Note"
+      email: "Email"

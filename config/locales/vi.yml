@@ -112,8 +112,33 @@ vi:
     product:
       order_now: "Đặt hàng"
     show:
-      order_now: "Đặt hàng "
+      order_now: "Đặt hàng"
       in_stock: "trong kho hàng"
       not_found: "Không tìm thấ sản phẩm"
-  submit: "Tạo mới"
-  empty: "Trống!"
+      quantity: "Số lượng"
+    submit: "Tạo mới"
+    empty: "Trống!"
+  carts:
+    index:
+      name: "Tên sản phẩm"
+      image: "Ảnh"
+      price: "Giá"
+      size: "Kích cỡ"
+      quantity: "Số lượng"
+      total_price: "Tổng giá"
+      back_to_shop: "Quay trở lại cửa hàng"
+      checkout: "Thanh toán"
+      summary: "Chi tiết thanh toán"
+  orders:
+    create:
+      order_success: "Đặt hàng thành công!"
+      order_fail: "Đặt hàng không thành công"
+    new:
+      cart_sum: "Chi tiết giỏ hàng"
+      order_now: "Đặt hàng ngay"
+      total: "Tổng giá"
+      checkout: "Thanh toán"
+      phone: "Điện thoại"
+      address: "Địa chỉ"
+      note: "Ghi chú"
+      email: "Email"

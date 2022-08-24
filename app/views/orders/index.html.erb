@@ -1,0 +1,38 @@
+<section class="restaurants-page cart_show">
+  <div class="container">
+    <div class="row ">
+      <div class="cart">
+        <div class="table table-bordered">
+          <table class="table nowrap">
+            <thead>
+              <tr>
+                <th>
+                  <%= t ".name" %>
+                </th>
+                <th>
+                  <%= t ".phone" %>
+                </th>
+                <th>
+                  <%= t ".address" %>
+                </th>
+                <th>
+                  <%= t ".total" %>
+                </th>
+                <th>
+                  <%= t ".order_date" %>
+                </th>
+                <th>
+                  <%= t ".status" %>
+                </th>
+              </tr>
+            </thead>
+            <tbody >
+              <%= render @orders %>
+            </tbody>
+          </table>
+        </div>
+        <%== pagy_nav @pagy %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -15,15 +15,21 @@
           <%= product.name %>
         <% end %>
       </h5>
-      <div class="product-name"><%= product.category_name %></div>
-      <div class="price-btn-block">
-        <span class="price">$
-          <%= product.product_attributes.first.price %>
-        </span>
-        <a href="profile.html" class="btn theme-btn-dash pull-right"><%= t ".order_now" %></a>
+      <div class="row d-flex">
+        <div class="product-name col-md-6" >
+          <%= product.category_name %>
+        </div>
+        <div class="price col-md-6 text-danger" style = "text-align:right">
+          $ <%= product.product_attributes.first.price %>
+        </div>
       </div>
+      <%= form_for :line_item,
+        url: line_items_path(:product_attribute_id => product.product_attributes.first.id) do |f| %>
+        <%= f.hidden_field :quantity , value: 1 %>
+        <%= f.submit t(".order_now"), class: "btn theme-btn-dash pull-left mb-2" %>
+      <% end %>
     </div>
     <div class="restaurant-block">
     </div>
-  </div>
+ </div>
 </div>

@@ -1,0 +1,84 @@
+<div class="container m-t-30">
+  <div class="widget clearfix">
+    <div class="widget-heading">
+      <h3 class="widget-title text-dark">
+        <%= t ".checkout" %>
+      </h3>
+      <div class="clearfix"></div>
+    </div>
+    <%= form_for(@order) do |f| %>
+      <div class="widget-body">
+        <div class="row">
+          <% if current_user %>
+            <%= f.hidden_field :user_id, value: current_user.id%>
+            <%= f.hidden_field :total, value: @cart.sub_total%>
+            <%= f.hidden_field :email, value: current_user.email%>
+            <div class="col-sm-6 margin-b-30">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <%= f.label t(".phone") %>
+                    <%= f.text_field :phone, value: current_user.phone,class: "form-control" %>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <%= f.label t(".email") %>
+                    <%= f.text_field :email, value: current_user.email,class: "form-control", :disabled => true  %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <%= f.label t(".address") %><br>
+                    <%= f.select :address_id, options_for_select(current_user.addresses.collect {|u| [ u.name, u.id ] }),class: "form-control" %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <%= f.label t(".note") %><br>
+                    <%= f.text_area :note, :rows => 5 ,class: "form-control" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="col-sm-6">
+            <div class="cart-totals margin-b-20">
+              <div class="cart-totals-title">
+                <h4><%= t ".cart_sum" %></h4>
+              </div>
+              <div class="cart-totals-fields">
+                <table class="table">
+                  <tbody>
+                    <% @cart.line_items.each do |line_item| %>
+                      <tr>
+                        <td>
+                          <%= line_item.product_attribute.product.name %> X
+                          <b><%= line_item.quantity %></b>
+                        </td>
+                        <td>$ <%= line_item.total_price %></td>
+                      </tr>
+                    <% end %>
+                    <tr>
+                      <td class="text-color"><strong><%= t ".total" %></strong></td>
+                      <td class="text-color"><strong>$ <%= @cart.sub_total %></strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="payment-option">
+              <p class="text-xs-center">
+                <%= f.submit t(".order_now"), class: "btn btn-outline-success btn-block" %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

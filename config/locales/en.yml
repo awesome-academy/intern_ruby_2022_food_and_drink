@@ -70,6 +70,7 @@ en:
         alert_success_destroy: "Delete successfully"
         alert_err_destroy: "Delete fail"
         title_modal: "You want to delete #{name}"
+        create: "Create"
   shared:
     nav:
       category: "Category"
@@ -130,3 +131,27 @@ en:
   empty: "Empty!"
   btn_ok: "Ok"
   btn_cancel: "Cancel"
+  carts:
+    index:
+      name: "Product name"
+      image: "Image"
+      price: "Price"
+      size: "Size"
+      quantity: "Quantity"
+      total_price: "Total price"
+      back_to_shop: "Back to shop"
+      checkout: "Checkout"
+      summary: "Summary"
+  orders:
+    create:
+      order_success: "Order successfully!"
+      order_fail: "Order fail"
+    new:
+      cart_sum: "Cart Summary"
+      order_now: "Order Now"
+      total: "Total Price"
+      checkout: "Checkout"
+      phone: "Phone"
+      address: "Address"
+      note: "Note"
+      email: "Email"

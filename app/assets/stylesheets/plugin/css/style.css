@@ -2859,6 +2859,7 @@ App section
     font-weight: 600;
     color: black;
   }
+
   .cable-choose {
     margin-bottom: 20px;
   }
@@ -2894,6 +2895,7 @@ App section
     margin: 10px 0;
     display: inline-block;
   }
+
   input[type="number"] {
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
@@ -2937,6 +2939,7 @@ App section
     content: '\f077';
     transform: translate(-50%, -50%) rotate(180deg);
   }
+
   .number-input button.plus:after {
     transform: translate(-50%, -50%) rotate(0deg);
   }
@@ -2951,4 +2954,160 @@ App section
     height: 3rem;
     font-weight: bold;
     text-align: center;
+  }
+
+  .title {
+    margin-bottom: 5vh;
+  }
+
+
+  .cart_show .cart {
+    background-color: #fff;
+    padding: 4vh 5vh;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+  }
+
+  @media(max-width:767px) {
+    .cart_show .cart {
+      padding: 4vh;
+      border-bottom-left-radius: unset;
+      border-top-right-radius: 1rem;
+    }
+  }
+
+  .cart_show .summary {
+    background-color: #ddd;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 4vh;
+    color: rgb(65, 65, 65);
+  }
+
+  @media(max-width:767px) {
+    .cart_show .summary {
+      border-top-right-radius: unset;
+      border-bottom-left-radius: 1rem;
+    }
+  }
+
+  .cart_show .summary .col-2 {
+    padding: 0;
+  }
+
+  .cart_show .summary .col-10 {
+    padding: 0;
+  }
+
+  .cart_show .row {
+    margin: 0;
+  }
+
+  .cart_show .title b {
+    font-size: 1.5rem;
+  }
+
+  .cart_show .main {
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%;
+  }
+
+  .cart_show .col-2, .col {
+    padding: 0 1vh;
+  }
+
+  .cart_show a {
+    padding: 0 1vh;
+  }
+
+  .cart_show .close {
+    margin-left: auto;
+    font-size: 0.7rem;
+  }
+
+  .cart_show img {
+    width: 3.5rem;
+  }
+
+  .cart_show .back-to-shop {
+    margin-top: 4.5rem;
+  }
+
+  .cart_show h5 {
+    margin-top: 4vh;
+  }
+
+  .cart_show hr {
+    margin-top: 1.25rem;
+  }
+
+  .cart_show form {
+    padding: 2vh 0;
+  }
+
+  .cart_show select {
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1.5vh 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+  }
+
+  .cart_show input {
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+  }
+
+  .cart_show input:focus::-webkit-input-placeholder {
+    color:transparent;
+  }
+
+  .cart_show .btn {
+    background-color: #000;
+    border-color: #000;
+    color: white;
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top: 4vh;
+    padding: 1vh;
+    border-radius: 0;
+  }
+
+  .cart_show .btn:focus {
+    box-shadow: none;
+    outline: none;
+    box-shadow: none;
+    color: white;
+    -webkit-box-shadow: none;
+    transition: none;
+  }
+
+  .cart_show .btn:hover {
+    color: white;
+  }
+
+  .cart_show a {
+    color: black;
+  }
+
+  .cart_show a:hover {
+    color: black;
+    text-decoration: none;
+  }
+
+  #code {
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+  }
+
+  .cart_show .buton_list input[type=submit] {
+    display:inline-block;
   }

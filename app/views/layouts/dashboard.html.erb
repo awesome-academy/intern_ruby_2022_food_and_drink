@@ -30,7 +30,13 @@
           </div>
         </div>
         <div class="inner-page-hero bg-image" style="background:url(<%= asset_path 'images/profile-banner.jpg' %>)">
-          <div class="container"> </div>
+          <div class="container">
+            <% flash.each do |message_type, message| %>
+              <div class="alert alert-<%= message_type %> alert_mess">
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
         </div>
         <div class="result-show">
           <%= yield %>

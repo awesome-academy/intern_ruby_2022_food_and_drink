@@ -1,0 +1,25 @@
+<h3>Books Store</h3>
+<p>
+  Thank you for your order, your items:
+</p>
+<table border=1>
+  <tr>
+    <th colspan="2">Name</th>
+    <th >Quantity</th>
+    <th >Price</th>
+  </tr>
+  <% @order.order_details.each do |item| %>
+    <tr>
+      <td>
+        <%= item.product_attribute.product.name %>
+      </td>
+      <td>
+        <%= item.quantity %>
+      </td>
+      <td>
+        <%= item.price%>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p>Thanks for shopping with <b>Books Store<b> and best regards.</p>

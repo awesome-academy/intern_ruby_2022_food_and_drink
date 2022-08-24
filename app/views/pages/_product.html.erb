@@ -1,6 +1,7 @@
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
   <div class="food-item-wrap">
-    <div class="figure-wrap bg-image" style="background:url('<%= product.product_images.first.image %>')">
+    <div class="figure-wrap bg-image"
+      style="background:url('<%= product.product_images.pluck(:image)[0] %>')">
       <div class="rating pull-left">
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
@@ -10,20 +11,24 @@
       </div>
     </div>
     <div class="content">
-      <h5>
-        <%= link_to dashboard_path(product) do %>
-          <%= product.name %>
-        <% end %>
-      </h5>
-      <div class="product-name"><%= product.category_name %></div>
-      <div class="price-btn-block">
-        <span class="price">$
-          <%= product.product_attributes.first.price %>
-        </span>
-        <a href="profile.html" class="btn theme-btn-dash pull-right"><%= t ".order_now" %></a>
+      <h5> <%= link_to product.name, dashboard_path(product) %></h5>
+      <div class="row d-flex">
+        <div class="product-name col-md-6" >
+          <%= product.category.name %>
+        </div>
+        <div class="price col-md-6 text-danger" style = "text-align:right">
+          $ <%= product.product_attributes.first.price %>
+        </div>
       </div>
+      <%= form_for :line_item,
+        url: line_items_path(:product_attribute_id => product.product_attributes.first.id) do |f| %>
+        <%= f.hidden_field :quantity , value: 1 %>
+        <%= f.submit t(".order_now"), class: "btn theme-btn-dash pull-left mb-2" %>
+      <% end %>
     </div>
     <div class="restaurant-block">
     </div>
+  </div>
+  <div class="restaurant-block">
   </div>
 </div>

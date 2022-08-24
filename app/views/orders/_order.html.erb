@@ -15,16 +15,26 @@
     <%= order.created_at %>
   </td>
   <td>
-    <% if order.orders_pendding? %>
+    <% if order.orders_pending? %>
       <span class="badge badge-danger text-danger"><%= order.status %></span>
     <% elsif order.orders_aprove? %>
       <span class="badge badge-warning text-warning"><%= order.status %></span>
     <% elsif order.orders_processing? %>
+      <span class="badge badge-info text-info"><%= order.status %></span>
+    <% elsif order.orders_success? %>
       <span class="badge badge-success text-success"><%= order.status %></span>
     <% else %>
       <span class="badge badge-secondary text-secondary"><%= order.status %></span>
     <% end %>
   </td>
   <td>
+    <% if order.orders_pending? %>
+      <%= button_to change_status_order_path(order, status: :reject, email: order.user_email), method: :patch, class: "btn btn-primary" do %>
+        <%= t ".reject" %>
+      <% end %>
+    <% end %>
+    <%= link_to order_path(order), class: "text-danger" do %>
+      <%= t ".detail" %>
+    <% end %>
   </td>
 </tr>

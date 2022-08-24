@@ -155,3 +155,22 @@ en:
       address: "Address"
       note: "Note"
       email: "Email"
+    show:
+      status: "Status"
+      pending: "Pending"
+      aprove: "Aprove"
+      processing: "Processing"
+      success: "Success"
+    change_status:
+      reject_success : "Order has been cancelled"
+      reject_fail: "Canceled order failed"
+    order:
+      reject: "Reject"
+      detail: "Detail"
+  order:
+    status:
+      pending: "Pending"
+      aprove: "Aprove"
+      processing: "Processing"
+      reject: "Reject"
+      success: "Success"

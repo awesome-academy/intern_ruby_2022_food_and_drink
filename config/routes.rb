@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     post 'line_items' => "line_items#create"
     get 'line_items/:id' => "line_items#show", as: "line_item"
     delete 'line_items/:id' => "line_items#destroy"
-    resources :orders
+    resources :orders do
+      member do
+        patch :change_status
+      end
+    end
     # Auth
     get "auth/register", to: "auth#new"
     get "auth/login"

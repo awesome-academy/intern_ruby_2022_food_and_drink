@@ -153,3 +153,22 @@ vi:
       address: "Địa chỉ"
       note: "Ghi chú"
       email: "Email"
+    show:
+      status: "Trạng thái"
+      pending: "Đang chờ xác nhận"
+      aprove: "Đã xác nhận"
+      processing: "Đang xử lý"
+      success: "Hoàn thành"
+    change_status:
+      reject_success : "Đơn hàng đã được hủy bỏ"
+      reject_fail: "Đơn hàng hủy bỏ không thành công"
+    order:
+      reject: "Hủy"
+      detail: "Chi tiết"
+  order:
+    status:
+      pending: "Đang chờ xác nhận"
+      aprove: "Đã xác nhận"
+      processing: "Đang xử lý"
+      reject: "Hủy"
+      success: "Hoàn thành"

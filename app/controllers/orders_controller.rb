@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   layout "dashboard"
   before_action :logged_in_user
+  before_action :find_order, only: %i(show change_status)
 
   def index
     @pagy, @orders = pagy current_user.orders.order_latest
@@ -31,6 +32,15 @@ class OrdersController < ApplicationController
 
   def show; end
 
+  def change_status
+    if @order.update(status: params[:status])
+      CancelOrderMailer.reject_order(@order, params[:email]).deliver_now
+      flash[:success] = t ".reject_success"
+    else
+      flash[:error] = t ".reject_fail"
+    end
+    redirect_to @order
+  end
   private
 
   def order_params
@@ -51,5 +61,13 @@ class OrdersController < ApplicationController
     OrderReceivedMailer.order_received(order_insert, order_email).deliver_now
     Cart.destroy(session[:cart_id])
     session[:cart_id] = nil
+  end
+
+  def find_order
+    @order = Order.find(params[:id])
+    return if @order
+
+    flash[:danger] = t ".not_found"
+    redirect_to orders_path
   end
 end

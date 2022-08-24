@@ -21,9 +21,22 @@ ActiveRecord::Schema.define(version: 2022_08_23_090352) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "carts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "line_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "product_attribute_id"
+    t.integer "cart_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -34,15 +47,15 @@ ActiveRecord::Schema.define(version: 2022_08_23_090352) do
     t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "product_attributes_id"
+    t.bigint "product_attribute_id"
     t.index ["order_id"], name: "index_order_details_on_order_id"
-    t.index ["product_attributes_id"], name: "index_order_details_on_product_attributes_id"
+    t.index ["product_attribute_id"], name: "index_order_details_on_product_attribute_id"
   end
 
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "total"
     t.text "note"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "phone"
     t.bigint "user_id", null: false
     t.bigint "address_id", null: false

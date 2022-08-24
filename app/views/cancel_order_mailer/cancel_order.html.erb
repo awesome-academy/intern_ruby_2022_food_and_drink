@@ -1,0 +1,25 @@
+<h3>Food and drink Store</h3>
+<p>
+  Your order has been reject, your items:
+</p>
+<table border=1>
+  <tr>
+    <th colspan="2">Name</th>
+    <th >Quantity</th>
+    <th >Price</th>
+  </tr>
+  <% @order.order_details.each do |item| %>
+    <tr>
+      <td>
+        <%= item.product_attribute.product.name %>
+      </td>
+      <td>
+        <%= item.quantity %>
+      </td>
+      <td>
+        <%= item.price%>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p>Thanks for shopping with <b>Food and drink Store<b> and best regards.</p>

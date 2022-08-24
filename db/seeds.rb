@@ -27,7 +27,7 @@ User.create!(
     phone: phone,
     password: password,
     password_confirmation: password,
-    role: 2,
+    role: 1,
     status: 1
   )
 end
@@ -38,6 +38,11 @@ users.each { |user| user.addresses.create!(
   types: rand(2) == 1 ? 0 : 1
   )
 }
+
+Size.create!(name: "S")
+Size.create!(name: "M")
+Size.create!(name: "L")
+Size.create!(name: "XL")
 
 6.times do |n|
   name = Faker::Commerce.brand
@@ -59,7 +64,7 @@ end
 end
 
 Product.all.each { |pro| pro.product_attributes.create!(
-  price: Faker::Commerce.price,
+  price: 20,
   quantity: 100,
   size_id: Faker::Number.between(from: 1, to: 4)
   )
@@ -69,17 +74,3 @@ Product.all.each { |pro| pro.product_images.create!(
   image: Faker::LoremFlickr.image
   )
 }
-
-Size.create!([
-  {:name => 'S'},
-  {:name => 'M'},
-  {:name => 'L'},
-  {:name => 'Xl'},
-])
-
-ProductAttribute.create!(
-  price: Faker::Commerce.price,
-  quantity: 10,
-  size_id: 3,
-  product_id: 1
-)

@@ -11,7 +11,11 @@ gem "cocoon"
 gem "config"
 gem "faker"
 gem "font-awesome-sass"
+<<<<<<< HEAD
 gem "i18n-js", "3.9.2"
+=======
+gem "figaro"
+>>>>>>> task.51848
 gem "jbuilder", "~> 2.7"
 gem "jquery-rails"
 gem "mysql2", "~> 0.5"

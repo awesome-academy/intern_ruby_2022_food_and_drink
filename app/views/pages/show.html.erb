@@ -43,14 +43,14 @@
               <% end %>
             </div>
           </div>
-          <div class="number-input">
-            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-            <input class="quantity" min="0" name="quantity" value="1" type="number">
-            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-          </div>
-          <div class="number-input">
-          </div>
-          <a href="#" class="btn theme-btn-dash pull-right"><%= t ".order_now" %></a>
+          <%= form_for :line_item, url: line_items_path(:product_attribute_id => @product.product_attributes.first.id), html: {id: "my_form"} do |f| %>
+            <div class="number-input">
+              <button type="button" onclick="this.parentNode.querySelector('#line_item_quantity').stepDown()" class="minus"></button>
+              <%= f.number_field "quantity" , value: 1, max: @product.product_attributes.first.quantity %>
+              <button type="button" onclick="this.parentNode.querySelector('#line_item_quantity').stepUp()" class="plus"></button>
+            </div>
+            <%= f.submit t(".order_now"), class: "btn theme-btn-dash pull-right" %>
+          <% end %>
         </div>
       </div>
     </div>

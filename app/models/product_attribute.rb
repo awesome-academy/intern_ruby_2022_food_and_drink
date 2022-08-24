@@ -11,4 +11,7 @@ class ProductAttribute < ApplicationRecord
     greater_than: Settings.const.products.attribute.min,
     less_than_or_equal_to: Settings.const.products.attribute.max
   }
+
+  delegate :name, to: :product, prefix: true
+  delegate :name, to: :size, prefix: true
 end

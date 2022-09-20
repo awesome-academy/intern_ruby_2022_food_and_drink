@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV["mail_host"]
+  default from: "asdasd"
   layout "mailer"
 end

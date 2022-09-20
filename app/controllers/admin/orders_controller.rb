@@ -22,7 +22,7 @@ class Admin::OrdersController < ApplicationController
 
   def run_update
     if @order.update status_params
-      OrderMailer.status(@order).deliver_now
+      OrderMailer.status(@order).deliver_later
     else
       throw StandardError
     end

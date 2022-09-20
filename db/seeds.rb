@@ -72,10 +72,10 @@ Product.all.each { |pro| pro.product_attributes.create!(
   )
 }
 
-Product.all.each { |pro| pro.product_images.create!(
-  image: Faker::LoremFlickr.image
-  )
-}
+# Product.all.each { |pro| pro.product_images.create!(
+#   image: Faker::LoremFlickr.image
+#   )
+# }
 
 ProductAttribute.create!(
   price: 100,

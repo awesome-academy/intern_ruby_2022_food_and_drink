@@ -34,6 +34,8 @@ gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
 gem "sidekiq"
 gem "redis"
+gem "redis-namespace"
+gem "redis-rails"
 source "https://rails-assets.org" do
   gem "rails-assets-angular"
   gem "rails-assets-bootstrap"

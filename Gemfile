@@ -36,6 +36,8 @@ gem "sidekiq"
 gem "redis"
 gem "redis-namespace"
 gem "redis-rails"
+gem "whenever", require: false
+gem "axlsx_rails"
 source "https://rails-assets.org" do
   gem "rails-assets-angular"
   gem "rails-assets-bootstrap"

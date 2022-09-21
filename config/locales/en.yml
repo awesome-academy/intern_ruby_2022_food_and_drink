@@ -84,6 +84,7 @@ en:
         quantity: "Quantity"
         create: "Create" 
     orders:
+      report_sale: "Monthly revenue report %{month}"
       index:
         name: "Name"
         phone: "Phone"
@@ -177,6 +178,7 @@ en:
       pending: "Pending"
       processing: "Processing"
       rejected: "Rejected"
+      finished: "Finished"
   validate:
     required: "Required"
     min_length: "Minimum %{number} characters"
@@ -197,3 +199,5 @@ en:
         text_confirm: "If did not make this request, just ignore this email. Otherwise, please click the button below to change your password:"
   or: "Or"
   login_google: "continue with Google"
+  must_login: "You need to login"
+  export_excel: "Export to excel to see details"

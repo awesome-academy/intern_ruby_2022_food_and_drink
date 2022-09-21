@@ -13,8 +13,10 @@ class Admin::OrdersController < ApplicationController
       approve_or_reject_order
     when "processing"
       processing_order
+    when "finished"
+      finished_order
     else
-      throw StandardError
+      raise StandardError
     end
   end
 
@@ -24,7 +26,7 @@ class Admin::OrdersController < ApplicationController
     if @order.update status_params
       OrderMailer.status(@order).deliver_later
     else
-      throw StandardError
+      raise StandardError
     end
   end
 
@@ -32,7 +34,7 @@ class Admin::OrdersController < ApplicationController
     if @order.status == "pending"
       run_update
     else
-      throw StandardError
+      raise StandardError
     end
   end
 
@@ -40,7 +42,14 @@ class Admin::OrdersController < ApplicationController
     if @order.status == "approved"
       run_update
     else
-      throw StandardError
+      raise StandardError
+    end
+  end
+  def finished_order
+    if @order.status == "processing"
+      run_update
+    else
+      raise StandardError
     end
   end
 

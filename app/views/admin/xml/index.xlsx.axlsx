@@ -1,0 +1,22 @@
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+  highlight_cell = style.add_style(bg_color: "EFC376", :border=>Axlsx::STYLE_THIN_BORDER)
+  border = style.add_style(:border=>Axlsx::STYLE_THIN_BORDER)
+  currency = style.add_style(:format_code=>"#,##0đ;[Red]#,##0", :border=>Axlsx::STYLE_THIN_BORDER)
+  wb.add_worksheet(name: "Orders") do |sheet|
+  sheet.add_row ["", "Name", "Size", "Quantity", "Price", "Total"], style: [nil, highlight_cell, highlight_cell, highlight_cell, highlight_cell, highlight_cell]
+  if @orders.present?
+    @orders.each do |order|
+      sheet.add_row [
+          "",
+          order.product_attribute.product.name,
+          order.product_attribute.size.name,
+          order.quantity,
+          order.price,
+          order.quantity * order.price
+        ], style: [nil, border, border, border, currency, currency]
+      end
+    end
+  end
+end

@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   belongs_to :address
   has_many :order_details, dependent: :destroy
 
-  enum status: {pending: 0, approved: 1, processing: 2, rejected: 3}
+  enum status: {pending: 0, approved: 1, processing: 2, rejected: 3, finished: 4}
 
   delegate :name, to: :user, prefix: true
   delegate :email, to: :user, prefix: true

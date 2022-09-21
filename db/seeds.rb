@@ -27,7 +27,7 @@ User.create!(
     phone: phone,
     password: password,
     password_confirmation: password,
-    role: 2,
+    role: 1,
     status: 1
   )
 end

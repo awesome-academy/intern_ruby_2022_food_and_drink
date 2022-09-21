@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :users
       resources :products
       resources :orders
+      resources :xml
     end
   end
   mount Sidekiq::Web => "/sidekiq"

@@ -58,6 +58,13 @@
             <li class="nav-item">
               <%= link_to t("login"), new_user_session_path, class: "nav-link" %>
             </li>
+            <li class="nav-item">
+                <% flash.each do |message_type, message| %>
+                  <div class="alert alert-<%= message_type %> alert_mess">
+                    <%= message %>
+                  </div>
+                <% end %>
+            </li>
           <% end %>
           <% if user_signed_in? %>
             <li class="nav-item">

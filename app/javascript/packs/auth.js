@@ -30,7 +30,7 @@ $(document).ready(function () {
       },
       "user[password]": {
         required: true,
-        regexPassword: true,
+        // regexPassword: true,
         maxlength: 255,
         minlength: 6
       },

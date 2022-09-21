@@ -83,6 +83,7 @@ vi:
         price: "Giá"
         quantity: "Số lượng"
     orders:
+      report_sale: "Báo cáo doanh thu tháng %{month}"
       index:
         name: "Tên người đặt"
         phone: "Số điện thoại"
@@ -174,6 +175,7 @@ vi:
       pending: "Đang chờ xác nhận"
       processing: "Đang xử lý"
       rejected: "Đã từ chối"
+      finished: "Đã hoàn thành"
   validate:
     required: "Không được để trống"
     min_length: "Tối thiểu %{number} kí tự"
@@ -194,3 +196,5 @@ vi:
         text_confirm: "Nếu không thực hiện yêu cầu này, chỉ cần bỏ qua email này. Nếu không, vui lòng nhấp vào nút bên dưới để thay đổi mật khẩu của bạn:"
   or: "Hoặc"
   login_google: "Tiếp tục với Google"
+  must_login: "Bạn cần đăng nhập"
+  export_excel: "Xuất ra excel để xem chi tiết"

@@ -6,13 +6,13 @@ Rails.application.configure do
 
   # Config mail
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = {host: ENV["host"]}
+  config.action_mailer.default_url_options = {host: "localhost"}
   config.action_mailer.smtp_settings = {
-    user_name: ENV["mail_user_name"],
-    password: ENV["mail_user_password"],
-    address: ENV["mail_address"],
-    port: ENV["mail_port"],
-    authentication: :cram_md5,
+    :user_name => '5689fb03e825a3',
+  :password => '17cd2201bbe4f0',
+  :address => 'smtp.mailtrap.io',
+  :domain => 'smtp.mailtrap.io',
+  :port => '2525',
     enable_starttls_auto: true
   }
 

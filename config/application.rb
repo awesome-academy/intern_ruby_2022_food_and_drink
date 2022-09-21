@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require "csv"
 
 # Require the gems listed in Gemfile, including any gems
 # you"ve limited to :test, :development, or :production.
@@ -21,5 +22,8 @@ module InternRuby2022FoodAndDrink
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.default_locale = :vi
     config.i18n.available_locales = [:vi,:en]
+
+    # Config sidekiq
+    config.active_job.queue_adapter = :sidekiq
   end
 end

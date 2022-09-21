@@ -160,6 +160,7 @@ $(document).ready(function () {
           <option value="approved">${I18n.t("orders.status.approved")}</option>
           <option value="rejected">${I18n.t("orders.status.rejected")}</option>
           <option value="processing">${I18n.t("orders.status.processing")}</option>
+          <option value="finished">${I18n.t("orders.status.finished")}</option>
         </select>
         </div>
       </div>

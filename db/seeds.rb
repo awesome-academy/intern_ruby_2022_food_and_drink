@@ -27,7 +27,7 @@ User.create!(
     phone: phone,
     password: password,
     password_confirmation: password,
-    role: 2,
+    role: 1,
     status: 1
   )
 end
@@ -72,10 +72,10 @@ Product.all.each { |pro| pro.product_attributes.create!(
   )
 }
 
-Product.all.each { |pro| pro.product_images.create!(
-  image: Faker::LoremFlickr.image
-  )
-}
+# Product.all.each { |pro| pro.product_images.create!(
+#   image: Faker::LoremFlickr.image
+#   )
+# }
 
 ProductAttribute.create!(
   price: 100,

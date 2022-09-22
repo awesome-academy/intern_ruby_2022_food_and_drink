@@ -11,6 +11,10 @@ vi:
       index:
         title: "Quản trị trang chủ"
         home_page: "Trang chủ"
+        name: "Tên người dùng"
+        phone: "SDT"
+        address: "Địa chỉ"
+        ip: "Địa chỉ ip"
     categories:
       update:
         alert_success_update: "Cập nhật thành công"
@@ -201,3 +205,4 @@ vi:
   login_google: "Tiếp tục với Google"
   all: "Tất cả"
   seach: "Tìm kiếm"
+  top_users: "5 người dùng tương tác hàng đầu"

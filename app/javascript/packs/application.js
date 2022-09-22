@@ -26,10 +26,13 @@ import "font-awesome/css/font-awesome.css";
 import "@fortawesome/fontawesome-free/js/all";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
+import "chartkick/chart.js"
 window.Swal = Swal;
 require("./product")
 require("./common");
 require("./auth")
+require("chartkick")
+require("chart.js")
 
 global.toastr = require("toastr")
 // document.addEventListener("turbolinks:load", () => {

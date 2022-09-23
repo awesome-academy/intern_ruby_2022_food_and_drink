@@ -15,4 +15,5 @@ function reply_click(clicked_id)
  var quantity =  document.getElementById(clicked_id).getAttribute("data-quantity")
     document.getElementById("pro_quantity").innerHTML =  quantity + " in stock"
 }
+
 require("../plugin/js")

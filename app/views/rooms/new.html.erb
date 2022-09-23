@@ -1,0 +1,22 @@
+<div class="card card-primary">
+  <div class="card-header">
+  </div>
+  <input type="hidden" id="all_name" name="all_name" value="<%= Product.latest_product.pluck("name").to_json %>">
+  <%= form_for @room,  html: {multipart: true} do |f| %>
+    <div class="text-red">
+      <%= render "shared/error_messages", object: f.object %>
+    </div>
+    <div class="card-body font-weight-bold">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= f.label t("admin.products.index.name") %>
+          <i class="text-danger fa fa-asterisk" aria-hidden="true"></i>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <%= f.submit "tajo", class: "btn btn-add-product btn-primary" %>
+    </div>
+  <% end %>
+</div>

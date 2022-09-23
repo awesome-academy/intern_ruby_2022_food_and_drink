@@ -11,8 +11,8 @@ User.create!(
   name: "admin",
   phone: "0123456789",
   email: "admin@gmail.com",
-  password: "123123",
-  password_confirmation: "123123",
+  password: "123@123Aa",
+  password_confirmation: "123@123Aa",
   role: 2,
   status: 1
 )
@@ -47,6 +47,10 @@ users.each { |user| user.addresses.create!(
   )
 end
 
+Room.create!(
+  name: 'Room'
+)
+
 Size.create!([
   {:name => 'S'},
   {:name => 'M'},
@@ -72,10 +76,10 @@ Product.all.each { |pro| pro.product_attributes.create!(
   )
 }
 
-Product.all.each { |pro| pro.product_images.create!(
-  image: Faker::LoremFlickr.image
-  )
-}
+# Product.all.each { |pro| pro.product_images.create!(
+#   image: Faker::LoremFlickr.image
+#   )
+# }
 
 ProductAttribute.create!(
   price: 100,

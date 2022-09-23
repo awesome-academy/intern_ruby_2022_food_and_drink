@@ -1,0 +1,16 @@
+<% @users.each do |user| %>
+  <tr>
+    <td>
+      <%= user.name %>
+    </td>
+    <td>
+      <%= user.phone %>
+    </td>
+    <td>
+      <%= user.addresses.nil? ? user.addresses.where("types", 1).first.name : "" %>
+    </td>
+    <td>
+      <%= user.last_sign_in_ip %>
+    </td>
+  </tr>
+<% end %>

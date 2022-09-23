@@ -48,8 +48,19 @@
           <% if user_signed_in? %>
             <li class="nav-item">
               <p class="nav-link">
-              <%= current_user.name %>
+                <%= current_user.name %>
               </p>
+              
+            </li>
+            <li class="nav-item">
+             <% if current_user.rooms.first.nil? %>
+                <%= form_tag rooms_path do |f| %>
+                    <%= hidden_field_tag 'room[:name]', current_user.id, class: "form-control" %>
+                    <%= submit_tag "chat to admin", class: "nav-link" %>
+                <% end %>
+              <% else %>
+                <%= link_to "go to chat", room_path(Room.first.id), id: "show_msg", class: "nav-link" %>
+              <% end %>
             </li>
           <% else %>
             <li class="nav-item">

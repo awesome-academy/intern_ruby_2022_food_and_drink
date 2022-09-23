@@ -35,6 +35,7 @@ gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
 gem "chartkick"
 gem "groupdate"
+gem "redis-rails"
 source "https://rails-assets.org" do
   gem "rails-assets-angular"
   gem "rails-assets-bootstrap"

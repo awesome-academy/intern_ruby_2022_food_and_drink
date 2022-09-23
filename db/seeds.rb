@@ -47,6 +47,10 @@ users.each { |user| user.addresses.create!(
   )
 end
 
+Room.create!(
+  name: 'Room'
+)
+
 Size.create!([
   {:name => 'S'},
   {:name => 'M'},

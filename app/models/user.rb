@@ -4,6 +4,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
   has_many :addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
+  has_many :messages
+  has_many :rooms
   accepts_nested_attributes_for :addresses, allow_destroy: true
   enum role: {
     user: Settings.const.users.role.user,

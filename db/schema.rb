@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_09_022448) do
+ActiveRecord::Schema.define(version: 2022_09_22_103623) do
 
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 2022_09_09_022448) do
     t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -90,6 +100,14 @@ ActiveRecord::Schema.define(version: 2022_09_09_022448) do
     t.index ["name"], name: "index_products_on_name", unique: true
   end
 
+  create_table "rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
   create_table "sizes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -135,6 +153,8 @@ ActiveRecord::Schema.define(version: 2022_09_09_022448) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "product_attributes"
   add_foreign_key "orders", "addresses"
@@ -143,5 +163,6 @@ ActiveRecord::Schema.define(version: 2022_09_09_022448) do
   add_foreign_key "product_attributes", "sizes"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "rooms", "users"
   add_foreign_key "votes", "products"
 end

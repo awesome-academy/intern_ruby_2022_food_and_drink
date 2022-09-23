@@ -1,4 +1,72 @@
 <%= provide :title, t(".title") %>
 <% provide :page_header, t(".home_page") %>
-<h1>Admin::Home#index</h1>
-<p>Find me in app/views/admin/home/index.html.erb</p>
+<%= form_tag admin_home_index_path, method: "get" do |f| %>
+  <div class="col-md-3">
+    <div class="card card-primary">
+      <div class="card-header">
+      </div>
+      <form>
+        <div class="card-body">
+          <div class="form-group">
+            <%= label_tag t("admin.products.index.start_date") %>
+            <%= date_field_tag :by_start_date, value: check_valid_date(params[:q], :by_start_date), class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <%= label_tag t("admin.products.index.end_date") %>
+            <%= date_field_tag :by_end_date, value: check_valid_date(params[:q], :by_end_date), class:"form-control" %>
+          </div>
+        </div>
+        <div class="card-footer">
+          <%= submit_tag t("seach"), class: "btn btn-primary" %>
+        </div>
+      </form>
+    </div>
+  </div>
+<% end %>
+<div class="col-md-9">
+  <%= line_chart @orders, adapter: "google", download: {filename: "Report quantity orders", background: "#ffffff"}, title: "Report quantity orders", colors: ["orange"], xtitle: "Date", ytitle: "Quantity" %>
+</div>
+<div class="row pt-5">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-tools">
+        </div>
+        <p class="font-weight-bold text-primary">
+            <%= t "top_users" %>
+        </p>
+      </div>
+      <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+          <thead>
+            <tr>
+              <th>
+                <%= t ".name" %>
+              </th>
+              <th>
+                <%= t ".phone" %>
+              </th>
+              <th>
+                <%= t ".address" %>
+              </th>
+              <th>
+                <%= t ".ip" %>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if @users.present? %>
+              <%= render "user_tracking", collection: @users %>
+            <% else %>
+              <tr>
+                <td class="text-center" colspan="4">
+                  <%= t "empty" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   include AuthHelper
   layout "dashboard"
+  before_action :find_product, only: :show
   skip_before_action :is_admin?
   def index
     @pagy, @products = pagy Product.latest_product,
@@ -11,10 +12,12 @@ class DashboardController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
-    return render "pages/show" if @product
+    render "pages/show"
+  end
 
-    flash[:danger] = t ".not_found"
-    redirect_to dashboard_path
+  private
+
+  def find_product
+    @product = find_object Product, params[:id]
   end
 end

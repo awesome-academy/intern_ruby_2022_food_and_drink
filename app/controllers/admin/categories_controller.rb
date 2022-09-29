@@ -36,12 +36,10 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    if check_orders_product_in_category?
-      message, status = @category.destroy ? [t(".alert_success_destroy"), 200] : [t(".alert_err_destroy"), 500]
-      render json: {message: message, status: status}
-    else
-      throw StandardError
-    end
+    raise StandardError unless check_orders_product_in_category?
+
+    message, status = @category.destroy ? [t(".alert_success_destroy"), 200] : [t(".alert_err_destroy"), 500]
+    render json: {message: message, status: status}
   end
 
   private
@@ -63,11 +61,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def find_category
-    @category = Category.find(params[:id])
-    return if @category
-
-    flash[:danger] = t ".not_found"
-    redirect_to admin_categories_path
+    @category = find_object Category, params[:id]
   end
 
   def get_all_category

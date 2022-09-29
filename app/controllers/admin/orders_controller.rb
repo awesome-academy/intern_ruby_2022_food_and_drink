@@ -14,34 +14,28 @@ class Admin::OrdersController < ApplicationController
     when "processing"
       processing_order
     else
-      throw StandardError
+      raise StandardError
     end
   end
 
   private
 
   def run_update
-    if @order.update status_params
-      OrderMailer.status(@order).deliver_now
-    else
-      throw StandardError
-    end
+    raise StandardError unless @order.update status_params
+
+    OrderMailer.status(@order).deliver_later
   end
 
   def approve_or_reject_order
-    if @order.status == "pending"
-      run_update
-    else
-      throw StandardError
-    end
+    raise StandardError unless @order.status == "pending"
+
+    run_update
   end
 
   def processing_order
-    if @order.status == "approved"
-      run_update
-    else
-      throw StandardError
-    end
+    raise StandardError unless @order.status == "approved"
+
+    run_update
   end
 
   def status_params

@@ -13,6 +13,7 @@ class Order < ApplicationRecord
     def statuses_i18n status = nill
       statuses.each_with_object({}) do |(k, _), obj|
         next if k == "pending"
+
         next if status.present? && k == status
 
         obj[I18n.t("orders.status.#{k}")] = k

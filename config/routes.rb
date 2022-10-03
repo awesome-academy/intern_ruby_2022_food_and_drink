@@ -20,4 +20,15 @@ Rails.application.routes.draw do
       resources :orders
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :users
+      resources :products
+      resources :categories
+      resources :orders
+      post "login", to: "auth#login"
+      patch "orders/update-status/:id", to: "orders#update_status"
+    end
+  end
 end

@@ -201,3 +201,7 @@ vi:
   login_google: "Tiếp tục với Google"
   all: "Tất cả"
   seach: "Tìm kiếm"
+  success: "Thành công"
+  fail: "Thất bại"
+  unauthorized: "Bạn không có quyền truy cập"
+  not_found: "Không tìm thấy"

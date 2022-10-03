@@ -9,6 +9,8 @@ class Order < ApplicationRecord
   delegate :email, to: :user, prefix: true
   delegate :name, to: :address, prefix: true
 
+  accepts_nested_attributes_for :order_details, allow_destroy: true
+
   class << self
     def statuses_i18n status = nill
       statuses.each_with_object({}) do |(k, _), obj|

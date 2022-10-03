@@ -3,6 +3,7 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 
 ruby "2.7.0"
 
+gem "active_model_serializers"
 gem "bcrypt", "~> 3.1.11"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "bootstrap-sass", "3.4.1"
@@ -13,11 +14,13 @@ gem "config"
 gem "devise"
 gem "devise_token_auth"
 gem "faker"
+gem "fast_jsonapi"
 gem "font-awesome-sass"
 gem "i18n-js", "3.9.2"
 gem "jbuilder", "~> 2.7"
 gem "jquery-rails"
 gem "jquery-validation-rails"
+gem "jwt"
 gem "mysql2", "~> 0.5"
 gem "omniauth"
 gem "omniauth-google-oauth2"

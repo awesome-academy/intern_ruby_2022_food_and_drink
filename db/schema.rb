@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_09_022448) do
+ActiveRecord::Schema.define(version: 2022_10_03_102206) do
 
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2022_09_09_022448) do
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "total"
     t.text "note"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "phone"
     t.bigint "user_id", null: false
     t.bigint "address_id", null: false

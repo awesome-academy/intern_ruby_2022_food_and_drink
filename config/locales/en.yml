@@ -203,3 +203,7 @@ en:
   login_google: "continue with Google"
   all: "All"
   seach: "Seach"
+  success: "Successfully"
+  fail: "Failed"
+  unauthorized: "Unauthorized"
+  not_found: "Not found"

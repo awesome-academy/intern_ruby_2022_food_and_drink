@@ -1,4 +1,5 @@
 const:
+  expired_token: 24
   paginate: 10
   users:
     name:
